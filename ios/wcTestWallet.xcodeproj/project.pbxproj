@@ -159,7 +159,6 @@
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				636E0003B196DBCB4FFDB0B8 /* [CP] Embed Pods Frameworks */,
 				221AB14FD6C647CE33136EB7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -182,7 +181,6 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				7BBDBA462ED2183755EA5195 /* Frameworks */,
-				AF78EE8AF0854CF2940F8FB1 /* [CP] Embed Pods Frameworks */,
 				32D5C5CEF67D9E37F4FA5CAF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -296,40 +294,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-wcTestWallet/Pods-wcTestWallet-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		636E0003B196DBCB4FFDB0B8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-wcTestWallet-wcTestWalletTests/Pods-wcTestWallet-wcTestWalletTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-wcTestWallet-wcTestWalletTests/Pods-wcTestWallet-wcTestWalletTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-wcTestWallet-wcTestWalletTests/Pods-wcTestWallet-wcTestWalletTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AF78EE8AF0854CF2940F8FB1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-wcTestWallet/Pods-wcTestWallet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-wcTestWallet/Pods-wcTestWallet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-wcTestWallet/Pods-wcTestWallet-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B6D7AC6081279538E34F9D6C /* [CP] Check Pods Manifest.lock */ = {
