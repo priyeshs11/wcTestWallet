@@ -1,39 +1,12 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import logo from './logo.svg';
+import './App.css';
+import * as React from "react";
+import WalletConnect from "@walletconnect/client";
 
-import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  TextInput,
-  useColorScheme,
-  Text,
-  View,
-  Button,
-} from 'react-native';
-import WalletConnect from '@walletconnect/client';
-
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
-
-
-const App = () => {
+function App() {
 
   const [text, onChangeText] = React.useState("");
   const [client, setClient] = React.useState(null);
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
 
   const SYLO_WC_CLIENT_META = {
     description: 'Sylo Smart Wallet',
@@ -48,7 +21,7 @@ const App = () => {
       clientMeta: SYLO_WC_CLIENT_META,
     });
     if (!newClient.connected) newClient.createSession();
-    console.log(newClient);
+    console.log("connected", text, newClient);
     setClient(newClient);
   }
 
@@ -74,7 +47,6 @@ const App = () => {
             chainId: 1
           })
           console.log("approved", text, client);
-          setClient(client);
         }
       );
   
@@ -85,7 +57,6 @@ const App = () => {
           if (error) {
             throw error;
           }
-          setClient(client);
         }
       );
   
@@ -115,67 +86,35 @@ const App = () => {
 
   React.useEffect(() => {
     if (client)  {
-      console.log('MY CLIENT:', client, client.connected);
+      console.log(client);
       // client.rejectSession();
       subscribeToEvents();
     }
   }, [client])
-
-  React.useEffect(() => {
-    console.log('MY CLIENT STATUS:', client?.connected);
-  }, [client?.connected])
-
+  
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeText}
-          value={text}
-          placeholder={'WC URI'}
-        />
-        <Text style={{
-          textAlign: 'center',
-        }}>{client && client.connected ? 'You are connected' : 'You are disconnected'}</Text>
-        <Button
-          title="Connect"
-          onPress={() => connect()}
-        />
-        <Button
-          title="Disconnect"
-          onPress={() => disconnect()}
-        />
-      </ScrollView>
-    </SafeAreaView>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <input placeholder="WC URI" onChange={(e) => onChangeText(e.target.value)}></input>
+        <br/>
+        <button onClick={() => connect()}>Connect</button>
+        <br/>
+        <button onClick={() => disconnect()}>Disonnect</button>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
-};
-
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    paddingHorizontal: 8,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+}
 
 export default App;
